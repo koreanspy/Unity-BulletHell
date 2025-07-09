@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Player : Entity
@@ -13,8 +14,12 @@ public class Player : Entity
     private SpriteRenderer spriteRend;
     private CircleCollider2D collider;
 
-    [SerializeField]private Animator playerAnimator;
-    [SerializeField]private Animator deathAnimator;
+    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private Animator deathAnimator;
+
+    //Events
+    public UnityEvent PlayerLevelUp;
+    public UnityEvent PlayerDeath;
 
 
     //Inputs
@@ -67,7 +72,7 @@ public class Player : Entity
         playerAnimator.SetBool("isRight", inputVector.x > 0);
         playerAnimator.SetBool("isSlow", isSlow);
 
-        if (currentShottype) { currentShottype.CardUpdate(); }
+        currentShottype?.CardUpdate();
 
         moveSpeed = isSlow ? 4.75f : 9f;
 
@@ -122,6 +127,9 @@ public class Player : Entity
         bombCooldown = false;
     }
 
+
+    // Fix a bug here where if you spam shoot, it just freezes up
+    // This may be an issue with the shot type logic itself
     private void Shoot_performed(InputAction.CallbackContext obj)
     {
         currentShottype?.Fire();
@@ -159,6 +167,7 @@ public class Player : Entity
     private void LevelUp(int level)
     {
         Debug.Log("Leveled up to: " + level);
+        PlayerLevelUp?.Invoke();
         currentShottype.Init(this, level);
     }
 
@@ -182,6 +191,7 @@ public class Player : Entity
         yield return null;
     }
 
+    //Couldn't get tasks to work, maybe I'm dumb /shrug
     private async void RespawnTask()
     {
         await Task.Delay(150);

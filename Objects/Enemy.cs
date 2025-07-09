@@ -9,7 +9,6 @@ public class Enemy : Entity
 
     public ParticleSystem deathParticles;
 
-    //Initialize position, behaviour and shot type
     public void Init(Vector3 spawnPosition, EnemyBehaviour enemyBehaviour, EnemyDefinition enemyDefinition)
     {
         Health = enemyDefinition.Health;

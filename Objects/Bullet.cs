@@ -140,34 +140,29 @@ public class Bullet : MonoBehaviour
 
     void DebugDrawBox(Vector2 pointA, Vector2 pointB, UnityEngine.Color color, float duration = 0.1f)
     {
-        // Calculate the four corners of the rectangle
         Vector2 topLeft = new Vector2(pointA.x, pointB.y);
         Vector2 topRight = pointB;
         Vector2 bottomLeft = pointA;
         Vector2 bottomRight = new Vector2(pointB.x, pointA.y);
 
-        // Draw the rectangle's edges
-        Debug.DrawLine(bottomLeft, topLeft, color, duration);   // Left edge
-        Debug.DrawLine(topLeft, topRight, color, duration);    // Top edge
-        Debug.DrawLine(topRight, bottomRight, color, duration); // Right edge
-        Debug.DrawLine(bottomRight, bottomLeft, color, duration); // Bottom edge
+        Debug.DrawLine(bottomLeft, topLeft, color, duration);
+        Debug.DrawLine(topLeft, topRight, color, duration);
+        Debug.DrawLine(topRight, bottomRight, color, duration);
+        Debug.DrawLine(bottomRight, bottomLeft, color, duration);
     }
 
     void DebugDrawCircle(Vector2 center, float radius, UnityEngine.Color color, float duration = 0.1f, int segments = 36)
     {
-        float angleStep = 360f / segments; // Divide the circle into equal segments
+        float angleStep = 360f / segments;
 
         for (int i = 0; i < segments; i++)
         {
-            // Calculate the start and end angles for this segment
             float startAngle = Mathf.Deg2Rad * (i * angleStep);
             float endAngle = Mathf.Deg2Rad * ((i + 1) * angleStep);
 
-            // Calculate the start and end points for this segment
             Vector2 startPoint = center + new Vector2(Mathf.Cos(startAngle), Mathf.Sin(startAngle)) * radius;
             Vector2 endPoint = center + new Vector2(Mathf.Cos(endAngle), Mathf.Sin(endAngle)) * radius;
 
-            // Draw the line segment
             Debug.DrawLine(startPoint, endPoint, color, duration);
         }
     }

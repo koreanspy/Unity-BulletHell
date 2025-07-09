@@ -12,6 +12,7 @@ public class ShotType : ScriptableObject
 
     public Player player;
 
+    //Might swap to tasks if I redo the BulletManager
     public Coroutine shootingCoroutine;
 
     public int Level;
@@ -48,8 +49,6 @@ public class ShotType : ScriptableObject
 
     //We're just going to call Destroy for now
     //If it affects performance down the line then I'll refactor it into a 4 object pool.
-
-    //Eh looking back on it now, we should just have all of the spellcards instanced and just swap between them
     public virtual void CleanUp()
     {
         for (int i = 0; i < Emitters.Length; i++)
