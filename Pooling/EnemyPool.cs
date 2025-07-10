@@ -35,7 +35,7 @@ public class EnemyPool : MonoBehaviour
         return _enemy;
     }
 
-    public void SpawnEnemy(Vector3 position, EnemyBehaviour enemyBehaviour, EnemyDefinition enemyDefinition)
+    public void SpawnEnemy(Vector2 position, EnemyBehaviour enemyBehaviour, EnemyDefinition enemyDefinition)
     {
         foreach (Enemy enemy in enemyPool)
         {

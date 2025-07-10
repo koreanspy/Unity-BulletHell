@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BulletDefinition", menuName = "Bullets/BulletDefinition", order = 1)]
 public class BulletDefinition : ScriptableObject
 {
+    //Legacy, remove whenever
     public enum ColliderType
     {
         Circle,
