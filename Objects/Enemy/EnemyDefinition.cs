@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EnemyDefinition", menuName = "Enemy/EnemyDefinition")]
@@ -7,5 +8,5 @@ public class EnemyDefinition : ScriptableObject
     public int Health = 0;
     public int Armor = 0;
 
-    public Animator Animator;
+    public AnimatorController Animator;
 }

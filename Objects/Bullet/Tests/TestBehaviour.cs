@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BulletBehaviour", menuName = "Bullets/BulletBehaviour", order = 1)]
+[CreateAssetMenu(fileName = "BulletBehaviour", menuName = "Bullets/Behaviours/TestBehaviour", order = 1)]
 public class TestBehaviour : BulletBehaviour
 {
     public override void StartBullet(Bullet bullet)

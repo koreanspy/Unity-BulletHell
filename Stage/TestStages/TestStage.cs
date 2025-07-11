@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -11,12 +12,21 @@ public class TestStage : StageScript
 
     private async void StageTask()
     {
-        Debug.Log("The stage has started.....");
-        await Task.Delay(2000);
-        EnemyPool.Instance.SpawnEnemy(Vector2.zero, null, null);
-        BossAppear.Invoke();
-        await Task.Delay(5000);
-        StageFinish.Invoke();
-        await Task.CompletedTask;
+        try
+        {
+            Debug.Log("The stage has started.....");
+            await Task.Delay(2000);
+            EnemyPool.Instance.SpawnEnemy(Vector2.zero, null, null);
+
+            BossAppear.Invoke();
+            await Task.Delay(5000);
+            StageFinish.Invoke();
+            await Task.CompletedTask;
+        }
+        catch (Exception e)
+        {
+            Debug.Log($"Error: {e}");
+            await Task.CompletedTask;
+        }
     }
 }

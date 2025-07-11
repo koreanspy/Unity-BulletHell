@@ -620,6 +620,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef52dfc3b08d8349999505608ea16e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MusicChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &623158453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,13 +642,6 @@ MonoBehaviour:
       Data3: 517550472
       Data4: 1304682492
     Path: event:/SFX/ShotTwinkleLoop30MS
-  <MarisaTheme>k__BackingField:
-    Guid:
-      Data1: 610875044
-      Data2: 1189174088
-      Data3: -78498943
-      Data4: 199304796
-    Path: event:/Music/MarisaThemeStemmed
 --- !u!114 &623158454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3178,7 +3174,7 @@ Animator:
   m_GameObject: {fileID: 1712794621}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 573c041d7379655498644badcfb44609, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3d9f187b121aaf641b8147a8d862d89f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3234,7 +3230,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1392324555, guid: 1d752c880ea2d1b4bb4ad7cfe81c66e6, type: 3}
+  m_Sprite: {fileID: 2109030033, guid: a2680b04cbadd3640b58620e47595f9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

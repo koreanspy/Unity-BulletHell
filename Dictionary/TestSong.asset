@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: TestSong
   m_EditorClassIdentifier: Assembly-CSharp::Song
-  title: 
-  description: 
+  Title: 
+  Description: 
   FMODReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1037209142
+      Data2: 1134114166
+      Data3: -1058285910
+      Data4: -2037729534
+    Path: event:/Music/MarisaTheme

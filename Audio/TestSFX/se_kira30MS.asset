@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: se_kira30MS
   m_EditorClassIdentifier: Assembly-CSharp::SFX
-  Name: 
+  Name: se_kira30ms
   FMODReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -372454758
+      Data2: 1309593671
+      Data3: 517550472
+      Data4: 1304682492
+    Path: event:/SFX/ShotTwinkleLoop30MS

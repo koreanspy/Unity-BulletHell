@@ -28,6 +28,7 @@ public class BulletPool : MonoBehaviour
         Physics.simulationMode = SimulationMode.Script;
     }
 
+    //Rewrite this to not rely on the enemy to handle the bullet object
     public Bullet CreateNewBullet()
     {
         GameObject go = new GameObject("Bullet");
