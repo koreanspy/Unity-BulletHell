@@ -7,9 +7,6 @@ public class FMODEvents : MonoBehaviour
 {
     [field: SerializeField] public EventReference ShotTwinkle { get; private set; }
 
-
-    [field: SerializeField] public EventReference MarisaTheme { get; private set; }
-
     public static FMODEvents Instance {  get; private set; }
 
     private void Awake()
