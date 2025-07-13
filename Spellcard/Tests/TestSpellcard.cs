@@ -1,10 +1,6 @@
 using FMOD.Studio;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using static UnityEngine.InputSystem.OnScreen.OnScreenStick;
 
 [CreateAssetMenu(fileName = "TestSpellcard", menuName = "Spellcard/TEST", order = 1)]
 public class TestSpellcard : Spellcard
@@ -48,9 +44,9 @@ public class TestSpellcard : Spellcard
         }
         //set localPosition to zero AFTER instances to prevent weird scaling issues
         EmitterAnchor.transform.localPosition = Vector3.zero;
+
         boss.StartCoroutine(ShootGif());
     }
-
 
     public override void Update()
     {
@@ -68,15 +64,8 @@ public class TestSpellcard : Spellcard
         {
             for (int i = 0;i < 8;i++)
             {
-                Bullet bullet1 = BulletPool.Instance.RequestBullet();
-                Quaternion worldRot1 = Emitters[i].transform.rotation;
-                bullet1.transform.position = Emitters[i].transform.position;
-                bullet1.transform.rotation = worldRot1;
-                bullet1.Init(BulDef, BulBeh);
+                BulletPool.Instance.SpawnBullet(Emitters[i].transform.position, Emitters[i].transform.rotation.eulerAngles, BulDef, BulBeh);
             }
-            
-            //AudioManager.Instance.PlaySFXLength(ShootSFX, 0.05f, 1f, (float)DoubleFrame);
-
             //Apparently the most consistent timer is fucking 2 divided by 60???
             yield return new WaitForSeconds((float)DoubleFrame);
         }

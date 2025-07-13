@@ -21,7 +21,7 @@ public class Enemy : Entity
     {
         Health = enemyDefinition.Health;
         Armor = enemyDefinition.Armor;
-        Animator.runtimeAnimatorController = enemyDefinition.Animator;
+        //Animator.runtimeAnimatorController = enemyDefinition.Animator;
     }
 
     void Update()
@@ -35,6 +35,12 @@ public class Enemy : Entity
     void Die()
     {
         deathParticles.Play();
+        CleanAnAddToPool();
+    }
+
+    void OnBecameInvisible()
+    {
+
     }
 
     void CleanAnAddToPool()

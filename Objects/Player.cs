@@ -46,8 +46,8 @@ public class Player : Entity
         Instance = this;
         Controls = InputSys.Instance.Controls;
         Controls.InGame.Bomb.performed += Bomb_performed;
-        //Controls.InGame.Shoot.performed += Shoot_performed;
-        Controls.InGame.Shoot.started += Shoot_performed;
+        Controls.InGame.Shoot.performed += Shoot_performed;
+        //Controls.InGame.Shoot.started += Shoot_performed;
         Controls.InGame.Shoot.canceled += Shoot_cancelled;
         Health = 3;
         BombCount = 3;
@@ -88,10 +88,7 @@ public class Player : Entity
     {
         isShooting = Controls.InGame.Shoot.IsPressed();
         isSlow = Controls.InGame.Slow.IsPressed();
-        /*inputVector = new Vector2(Controls.InGame.Left.ReadValue<float>() + Controls.InGame.Right.ReadValue<float>(), Controls.InGame.Up.ReadValue<float>() + Controls.InGame.Down.ReadValue<float>()).normalized;
-        if(Controls.InGame.Left.ReadValue<float>() == -1 && Controls.InGame.Right.ReadValue<float>() == 1) { inputVector = new Vector2(-1 ,inputVector.y).normalized; }
-        if(Controls.InGame.Up.ReadValue<float>() == 1 && Controls.InGame.Down.ReadValue<float>() == -1) { inputVector = new Vector2(inputVector.x, -1).normalized; }
-        */
+
         float horizontal = Controls.InGame.Left.ReadValue<float>() == -1 ? -1 :
                    Controls.InGame.Right.ReadValue<float>() == 1 ? 1 : 0;
 

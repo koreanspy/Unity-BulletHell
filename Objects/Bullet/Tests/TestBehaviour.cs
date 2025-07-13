@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Mathematics;
 
 [CreateAssetMenu(fileName = "BulletBehaviour", menuName = "Bullets/Behaviours/TestBehaviour", order = 1)]
 public class TestBehaviour : BulletBehaviour
@@ -8,7 +9,7 @@ public class TestBehaviour : BulletBehaviour
     public override void StartBullet(Bullet bullet)
     {
         //apply forwards
-        bullet.rb.linearVelocity = -bullet.transform.up * 8.5f;
+        bullet.rb.linearVelocity = -(Vector2)bullet.transform.up * 8.5f;
     }
 
     public override void UpdateBullet(Bullet bullet)
