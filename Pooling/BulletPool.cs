@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,7 +29,7 @@ public class BulletPool : MonoBehaviour
         Physics.simulationMode = SimulationMode.Script;
     }
 
-    //Rewrite this to not rely on the enemy to handle the bullet object
+    //Rewrite this to not rely on the entity to handle the bullet object
     public Bullet CreateNewBullet()
     {
         GameObject go = new GameObject("Bullet");
@@ -38,7 +39,12 @@ public class BulletPool : MonoBehaviour
         //go.SetActive(false);
         return _bullet;
     }
-    
+
+    /// <summary>
+    /// LEGACY DO NOT USE, THIS IS ONLY HERE TO NOT BREAK EVERYTHING
+    /// </summary>
+    /// <returns></returns>
+    [Obsolete]
     public Bullet RequestBullet()
     {
         foreach (Bullet bullet in bulletPool)
@@ -47,6 +53,20 @@ public class BulletPool : MonoBehaviour
             return bullet;
         }
         return CreateNewBullet();
+    }
+
+
+    public void SpawnBullet(Vector3 position, Vector3 rotation, BulletDefinition definition, BulletBehaviour behaviour)
+    {
+        foreach (Bullet bullet in bulletPool)
+        {
+            RemoveFromPool(bullet);
+            bullet.Init(position, rotation, definition, behaviour);
+            return;
+        }
+        Bullet _bullet = CreateNewBullet();
+        _bullet.Init(position, rotation, definition, behaviour);
+        return;
     }
     
     public void AddToPool(Bullet _bullet)
