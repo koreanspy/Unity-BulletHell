@@ -46,7 +46,7 @@ public class Bullet : MonoBehaviour
         */
     }
 
-    public void Init(BulletDefinition _definition, BulletBehaviour _behaviour)
+    public void Init(Vector3 position, Vector3 rotation, BulletDefinition _definition, BulletBehaviour _behaviour)
     {
         spriteRenderer.sprite = _definition.bulletSprite;
         spriteRenderer.size = _definition.spriteSize;
@@ -83,6 +83,8 @@ public class Bullet : MonoBehaviour
         }
         */
         //bulletCollider.isTrigger = true;
+        transform.position = position;
+        transform.rotation = Quaternion.Euler(rotation);
         bulletBehaviour.StartBullet(this);
     }
 
@@ -128,9 +130,9 @@ public class Bullet : MonoBehaviour
         //colResult = Physics2D.OverlapArea((Vector2)transform.position + new Vector2(.05f, .05f), (Vector2)transform.position + new Vector2(-.05f, -.05f), layerMask);
 
 #if UNITY_EDITOR
-        DebugDrawCircle((Vector2)transform.position, bulletDefinition.hitboxRadius, UnityEngine.Color.red, 0f);
+        DebugDrawCircle((Vector2)transform.position + bulletDefinition.hitboxOffset, bulletDefinition.hitboxRadius, UnityEngine.Color.red, 0f);
 #endif
-        colResult = Physics2D.OverlapCircle((Vector2)transform.position, 0.1f, layerMask);
+        colResult = Physics2D.OverlapCircle((Vector2)transform.position + bulletDefinition.hitboxOffset, 0.1f, layerMask);
     }
 
     void Activate()

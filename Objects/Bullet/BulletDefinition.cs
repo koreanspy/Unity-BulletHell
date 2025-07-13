@@ -20,4 +20,5 @@ public class BulletDefinition : ScriptableObject
     public Material material;
     public Vector2 spriteSize;
     public float hitboxRadius;
+    public Vector2 hitboxOffset;
 }
