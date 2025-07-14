@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class ShotType : ScriptableObject
@@ -12,7 +13,9 @@ public class ShotType : ScriptableObject
 
     public Player player;
 
-    //Might swap to tasks if I redo the BulletManager
+    public bool isShooting;
+
+    //Might swap to tasks if I FIGURE OUT HOW TO USE THEM
     public Coroutine shootingCoroutine;
 
     public int Level;
@@ -24,6 +27,7 @@ public class ShotType : ScriptableObject
 
     public GameObject EmitterAnchor;
     public GameObject[] Emitters;
+
 
 
     public virtual void Init(Player _player, int level)
@@ -47,8 +51,6 @@ public class ShotType : ScriptableObject
 
     }
 
-    //We're just going to call Destroy for now
-    //If it affects performance down the line then I'll refactor it into a 4 object pool.
     public virtual void CleanUp()
     {
         for (int i = 0; i < Emitters.Length; i++)
