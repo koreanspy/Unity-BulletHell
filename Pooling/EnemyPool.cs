@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class EnemyPool : MonoBehaviour
 {
@@ -39,20 +40,14 @@ public class EnemyPool : MonoBehaviour
     {
         foreach (Enemy enemy in enemyPool)
         {
-            if(enemy == null)
-            {
-                Enemy _enemy = CreateNewEnemy();
-                RemoveFromPool(_enemy);
-                _enemy.Init(position, enemyBehaviour, enemyDefinition);
-                return;
-            }
-            else
-            {
-                RemoveFromPool(enemy);
-                enemy.Init(position, enemyBehaviour, enemyDefinition);
-                return;
-            }
+            RemoveFromPool(enemy);
+            enemy.Init(position, enemyBehaviour, enemyDefinition);
+            return;
         }
+        Enemy _enemy = CreateNewEnemy();
+        RemoveFromPool(_enemy);
+        _enemy.Init(position, enemyBehaviour, enemyDefinition);
+        return;
     }
 
     public void AddToPool(Enemy enemy)
